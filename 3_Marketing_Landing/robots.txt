@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://creatudelivery.netlify.app/sitemap.xml
+Sitemap: https://jairodavidperdomogarcia.github.io/crea-tu-delivery/sitemap.xml
