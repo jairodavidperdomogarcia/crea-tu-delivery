@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grad)"/>
+  <g fill="#ffffff" font-family="Inter, Arial, Helvetica, sans-serif" text-anchor="middle">
+    <text x="600" y="290" font-size="64" font-weight="800">🚀 CREA TU DELIVERY</text>
+    <text x="600" y="360" font-size="38" font-weight="700">De Cero a CEO Tech</text>
+    <text x="600" y="420" font-size="28" opacity="0.95">Aprende Programación con IA y Drones</text>
+  </g>
+</svg>
