@@ -57,6 +57,16 @@ const planPorSecciones = {
       });
     });
 
+    // Compartir en Twitter y WhatsApp
+    const twitterLinks = document.querySelectorAll('a[href^="https://twitter.com/intent/tweet"]');
+    twitterLinks.forEach(a => {
+      a.addEventListener('click', () => sendEvent('share_twitter', { location: a.closest('section')?.id || 'header_footer' }));
+    });
+    const waLinks = document.querySelectorAll('a[href^="https://wa.me/"]');
+    waLinks.forEach(a => {
+      a.addEventListener('click', () => sendEvent('share_whatsapp', { location: a.closest('section')?.id || 'header_footer' }));
+    });
+
     // Envío del formulario (sin enviar PII)
     const form = document.querySelector('form[action^="https://formsubmit.co/"]');
     if (form) {
