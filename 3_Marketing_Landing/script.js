@@ -1,4 +1,4 @@
-﻿// Roadmap dinámico
+// Roadmap dinámico
 const planPorSecciones = {
   fase1: " Estructura Base (AHORA)",
   fase2: " Marketing & Landing",
@@ -26,5 +26,43 @@ const planPorSecciones = {
       card.className += ' ring-2 ring-secondary';
     }
     container.appendChild(card);
+  });
+})();
+
+// Tracking GA4 de interacciones clave
+(function setupAnalyticsTracking() {
+  // Helper para enviar eventos solo si gtag está disponible
+  function sendEvent(name, params) {
+    try {
+      if (typeof gtag === 'function') {
+        gtag('event', name, params || {});
+      }
+    } catch (_) {}
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Clics hacia Telegram
+    const telegramLinks = document.querySelectorAll('a[href^="https://t.me/creatudelivery"]');
+    telegramLinks.forEach(a => {
+      a.addEventListener('click', () => {
+        sendEvent('click_telegram', { location: a.closest('section')?.id || 'header_footer' });
+      });
+    });
+
+    // CTAs que llevan a #contacto
+    const contactCtas = document.querySelectorAll('a[href="#contacto"], a[href^="./index.html#contacto"]');
+    contactCtas.forEach(a => {
+      a.addEventListener('click', () => {
+        sendEvent('click_cta_contacto', { location: a.closest('section')?.id || 'header' });
+      });
+    });
+
+    // Envío del formulario (sin enviar PII)
+    const form = document.querySelector('form[action^="https://formsubmit.co/"]');
+    if (form) {
+      form.addEventListener('submit', () => {
+        sendEvent('form_submit', { form_id: form.getAttribute('action') });
+      });
+    }
   });
 })();
