@@ -67,6 +67,12 @@ const planPorSecciones = {
       a.addEventListener('click', () => sendEvent('share_whatsapp', { location: a.closest('section')?.id || 'header_footer' }));
     });
 
+    // Clic al canal de YouTube
+    const ytLinks = document.querySelectorAll('a[href*="youtube.com/@CreaTuDelivery"]');
+    ytLinks.forEach(a => {
+      a.addEventListener('click', () => sendEvent('click_youtube_channel', { location: a.closest('section')?.id || 'header_footer' }));
+    });
+
     // Envío del formulario (sin enviar PII)
     const form = document.querySelector('form[action^="https://formsubmit.co/"]');
     if (form) {
